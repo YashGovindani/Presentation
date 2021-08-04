@@ -34,12 +34,12 @@ InitialView::InitialView(QWidget *parent) :
     this->ui->frame->setGeometry(shadowRadius, shadowRadius, windowWidth, windowHeight);
     this->ui->frame->setStyleSheet(QString("border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); "));
     this->ui->fullScreenViewButton->setGeometry(0, 0, windowWidth/2, windowHeight);
-    this->ui->fullScreenViewButton->setStyleSheet(QString("border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : 0") + QString("; border-bottom-right-radius : 0") + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); border-right : 1px solid black"));
+    this->ui->fullScreenViewButton->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : 0") + QString("; border-bottom-right-radius : 0") + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); border-right : 1px solid black;} QPushButton:hover{background-color : rgb(255,255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}"));
     this->ui->fullScreenViewButton->setText(QString(""));
     this->ui->fullScreenViewButton->setIcon(QIcon(QPixmap(QString(":/global/images/monitor.png"))));
     this->ui->fullScreenViewButton->setIconSize(QSize(48, 48));
     this->ui->bubbleViewButton->setGeometry(windowWidth/2, 0, windowWidth/2, windowHeight);
-    this->ui->bubbleViewButton->setStyleSheet(QString("border-top-left-radius : 0") + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : 0") + QString("; background-color : rgb(32, 33, 36); border-left : 1px solid black"));
+    this->ui->bubbleViewButton->setStyleSheet(QString("QPushButton{border-top-left-radius : 0") + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : 0") + QString("; background-color : rgb(32, 33, 36); border-left : 1px solid black;} QPushButton:hover{background-color : rgb(255, 255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}"));
     this->ui->bubbleViewButton->setText(QString(""));
     this->ui->bubbleViewButton->setIcon(QIcon(QPixmap(QString(":/global/images/bubble.png"))));
     this->ui->bubbleViewButton->setIconSize(QSize(48, 48));
