@@ -4,6 +4,7 @@
 #include <QScreen>
 #include <QRect>
 #include <QGraphicsDropShadowEffect>
+#include "initialview.h"
 
 LoadingView::LoadingView(QWidget *parent) :
     QMainWindow(parent),
@@ -45,7 +46,7 @@ LoadingView::LoadingView(QWidget *parent) :
         this->ui->infoLabel->setStyleSheet(QString("background-color : rgba(1, 1, 1, 0)"));
         this->ui->infoLabel->setText(QString(""));
         this->isCompleted = false;
-        this->timerId = startTimer(1500);
+        this->timerId = startTimer(2000);
 }
 
 void LoadingView::setInfo(QString str)
@@ -58,6 +59,7 @@ void LoadingView::timerEvent(QTimerEvent *)
     if(this->isCompleted)
     {
         this->hide();
+        ((InitialView *)this->initialView)->show();
         killTimer(this->timerId);
         delete this;
     }
