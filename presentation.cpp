@@ -17,7 +17,7 @@ Presentation::Presentation(QWidget *parent)
     loadingView->setInfo(QString("Initiating"));
     InitialView *initialView = new InitialView(this);
     // After initiation
-    loadingView->setCompleted();
+    loadingView->setCompleted(initialView);
 }
 
 Presentation::~Presentation()

@@ -17,7 +17,7 @@ public:
     explicit LoadingView(QWidget *parent = nullptr);
     void setInfo(QString);
     void timerEvent(QTimerEvent *);
-    void setCompleted();
+    void setCompleted(QWidget *);
     ~LoadingView();
 
 private:
@@ -25,6 +25,7 @@ private:
     QGraphicsDropShadowEffect *shadow_effect;
     int timerId;
     bool isCompleted;
+    QWidget *initialView;
 };
 
 #endif // LOADINGVIEW_H

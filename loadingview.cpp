@@ -57,14 +57,16 @@ void LoadingView::timerEvent(QTimerEvent *)
 {
     if(this->isCompleted)
     {
+        this->hide();
         killTimer(this->timerId);
         delete this;
     }
 }
 
-void LoadingView::setCompleted()
+void LoadingView::setCompleted(QWidget *initialView)
 {
     this->isCompleted = true;
+    this->initialView = initialView;
 }
 
 LoadingView::~LoadingView()
