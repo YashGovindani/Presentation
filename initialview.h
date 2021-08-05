@@ -16,6 +16,11 @@ public:
     explicit InitialView(QWidget *parent = nullptr, QWidget *loadingView = nullptr);
     ~InitialView();
 
+private slots:
+    void on_fullScreenViewButton_clicked();
+
+    void on_bubbleViewButton_clicked();
+
 private:
     Ui::InitialView *ui;
     QGraphicsDropShadowEffect *shadow_effect;

@@ -6,6 +6,8 @@
 #include <QScreen>
 #include <QRect>
 #include <QGraphicsDropShadowEffect>
+#include <QPropertyAnimation>
+#include <QTimer>
 
 InitialView::InitialView(QWidget *parent, QWidget *loadingView) :
     QMainWindow(parent),
@@ -58,4 +60,40 @@ InitialView::~InitialView()
 {
     delete this->shadow_effect;
     delete ui;
+}
+
+void InitialView::on_fullScreenViewButton_clicked()
+{
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = screen->geometry();
+    int desktopWidth = screenGeometry.width();
+    int desktopHeight = screenGeometry.height();
+    int windowHeight = desktopHeight/10;
+    int windowWidth = desktopWidth/4;
+    int windowX = desktopWidth/2 - windowWidth/2;
+    int windowY = desktopHeight/2 - windowHeight/2;
+    this->setGeometry(0, 0, desktopWidth, desktopHeight);
+    this->ui->frame->setGeometry(windowX, windowY, windowWidth, windowHeight);
+    this->ui->bubbleViewButton->hide();
+    this->ui->fullScreenViewButton->hide();
+    QPropertyAnimation *animation = new QPropertyAnimation(this->ui->frame, "geometry", this);
+    animation->setDuration(500);
+    animation->setStartValue(this->ui->frame->geometry());
+    animation->setEndValue(screenGeometry);
+    animation->start();
+    QTimer::singleShot(500, this, [=](){
+        delete animation;
+        // code to make full screen view visible
+        this->hide();
+        delete this;
+    });
+}
+
+void InitialView::on_bubbleViewButton_clicked()
+{
+    // to get position of the bubble
+    // code to move this into bubble according to position of bubble that on any side of the screen with animation
+    this->hide();
+    // code to make major bubble visible
+    delete this;
 }
