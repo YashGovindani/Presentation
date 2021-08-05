@@ -4,4 +4,7 @@
         <file>logo.png</file>
         <file>monitor.png</file>
     </qresource>
+    <qresource prefix="/bubble/images">
+        <file>p.png</file>
+    </qresource>
 </RCC>
