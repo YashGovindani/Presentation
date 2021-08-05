@@ -13,7 +13,7 @@ class InitialView : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit InitialView(QWidget *parent = nullptr);
+    explicit InitialView(QWidget *parent = nullptr, QWidget *loadingView = nullptr);
     ~InitialView();
 
 private:

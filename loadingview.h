@@ -25,8 +25,11 @@ private:
     Ui::LoadingView *ui;
     QGraphicsDropShadowEffect *shadow_effect;
     int timerId;
+    int runTimeDuration;
     bool isCompleted;
     QWidget *initialView;
+    int timerEventTime;
+
 };
 
 #endif // LOADINGVIEW_H
