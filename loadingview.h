@@ -16,6 +16,7 @@ class LoadingView : public QMainWindow
 public:
     explicit LoadingView(QWidget *parent = nullptr);
     void setInfo(QString);
+    QString getInfo();
     void timerEvent(QTimerEvent *);
     void setCompleted(QWidget *);
     ~LoadingView();

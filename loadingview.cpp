@@ -54,6 +54,11 @@ void LoadingView::setInfo(QString str)
     this->ui->infoLabel->setText(str);
 }
 
+QString LoadingView::getInfo()
+{
+    return this->ui->infoLabel->text();
+}
+
 void LoadingView::timerEvent(QTimerEvent *)
 {
     if(this->isCompleted)
