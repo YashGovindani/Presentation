@@ -13,11 +13,11 @@ InitialView::InitialView(QWidget *parent, QWidget *loadingView) :
 {
     ui->setupUi(this);
     LoadingView *loadingViewPointer = (LoadingView *)loadingView;
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nCreating initial view"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Creating initial view"));
     int shadowRadius = 30;
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     this->setAttribute(Qt::WA_TranslucentBackground);
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nExtracting screen info"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Extracting screen info"));
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect screenGeometry = screen->geometry();
     int desktopWidth = screenGeometry.width();
@@ -26,11 +26,11 @@ InitialView::InitialView(QWidget *parent, QWidget *loadingView) :
     int windowWidth = desktopWidth/4;
     int windowX = desktopWidth/2 - windowWidth/2;
     int windowY = desktopHeight/2 - windowHeight/2;
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nGot screen info"));
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nSetting initial view geometry"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Got screen info"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Setting initial view geometry"));
     this->setGeometry(windowX - shadowRadius, windowY - shadowRadius, windowWidth + (shadowRadius*2), windowHeight + (shadowRadius*2));
     this->ui->frame->setGeometry( shadowRadius, shadowRadius, windowWidth, windowHeight);
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nAdding shadow to frame"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Adding shadow to frame"));
     shadow_effect=new QGraphicsDropShadowEffect(this);
     shadow_effect->setOffset(0, 0);
     shadow_effect->setColor(QColor(0, 0, 0, 255));
@@ -40,7 +40,7 @@ InitialView::InitialView(QWidget *parent, QWidget *loadingView) :
     this->ui->frame->setStyleSheet(QString("border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); "));
     this->ui->frame->setGeometry(shadowRadius, shadowRadius, windowWidth, windowHeight);
     this->ui->frame->setStyleSheet(QString("border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); "));
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nSetting buttons for initial view"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Setting buttons for initial view"));
     this->ui->fullScreenViewButton->setGeometry(0, 0, windowWidth/2, windowHeight);
     this->ui->fullScreenViewButton->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : 0") + QString("; border-bottom-right-radius : 0") + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36); border-right : 1px solid black;} QPushButton:hover{background-color : rgb(255,255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}"));
     this->ui->fullScreenViewButton->setText(QString(""));
@@ -51,7 +51,7 @@ InitialView::InitialView(QWidget *parent, QWidget *loadingView) :
     this->ui->bubbleViewButton->setText(QString(""));
     this->ui->bubbleViewButton->setIcon(QIcon(QPixmap(QString(":/global/images/bubble.png"))));
     this->ui->bubbleViewButton->setIconSize(QSize(48, 48));
-    if(loadingViewPointer) loadingViewPointer->setInfo(loadingViewPointer->getInfo() + QString("\nInitial view created"));
+    if(loadingViewPointer) loadingViewPointer->setInfo(QString("Initial view created"));
 }
 
 InitialView::~InitialView()

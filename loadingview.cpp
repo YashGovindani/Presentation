@@ -6,6 +6,7 @@
 #include <QGraphicsDropShadowEffect>
 #include "initialview.h"
 #include <QTimer>
+#include <QDebug>
 
 LoadingView::LoadingView(QWidget *parent) :
     QMainWindow(parent),
@@ -56,11 +57,6 @@ void LoadingView::setInfo(QString str)
 {
     QTimer::singleShot(this->runTimeDuration, this, [=](){this->ui->infoLabel->setText(str);});
     this->runTimeDuration += 300;
-}
-
-QString LoadingView::getInfo()
-{
-    return this->ui->infoLabel->text();
 }
 
 void LoadingView::timerEvent(QTimerEvent *)
