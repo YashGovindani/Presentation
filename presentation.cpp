@@ -17,7 +17,6 @@ Presentation::Presentation(QWidget *parent)
     loadingView->show();
     loadingView->setInfo(QString("Initiating"));
     InitialView *initialView = new InitialView(this, loadingView);
-    BubbleView::getBubbleView()->show();
     // After initiation
     loadingView->setInfo(QString("Ready to go !!!!"));
     loadingView->setCompleted(initialView);
