@@ -12,14 +12,6 @@ Presentation::Presentation(QWidget *parent)
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     this->setAttribute(Qt::WA_TranslucentBackground);
-    this->hide();
-    LoadingView *loadingView = new LoadingView(this);
-    loadingView->show();
-    loadingView->setInfo(QString("Initiating"));
-    InitialView *initialView = new InitialView(this, loadingView);
-    // After initiation
-    loadingView->setInfo(QString("Ready to go !!!!"));
-    loadingView->setCompleted(initialView);
 }
 
 Presentation::~Presentation()

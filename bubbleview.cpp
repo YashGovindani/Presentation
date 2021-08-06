@@ -1,6 +1,7 @@
 #include "bubbleview.h"
 #include "ui_bubbleview.h"
 
+#include "loadingview.h"
 #include <QScreen>
 #include <QRect>
 #include <QGraphicsDropShadowEffect>
