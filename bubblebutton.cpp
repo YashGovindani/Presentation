@@ -29,10 +29,6 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     int radius = windowHeight/2;
     int shadowRadius = 30;
     QString cornerRadius = QString::number(radius);
-
-
-
-
     this->setGeometry(desktopWidth - windowWidth - shadowRadius, desktopHeight/2 - windowHeight/2 - shadowRadius, windowWidth, windowHeight);
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Adding shadow to view"));
     shadow_effect=new QGraphicsDropShadowEffect(this);
@@ -40,8 +36,6 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     shadow_effect->setColor(QColor(0, 0, 0, 255));
     shadow_effect->setBlurRadius(shadowRadius);
     this->setGraphicsEffect(shadow_effect);
-
-
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Setting buttons for bubble view"));
     this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}"));
     this->setIcon(QIcon(QPixmap(QString(":/bubble/images/p.png"))));

@@ -3,7 +3,7 @@
 
 #include "presentation.h"
 #include "loadingview.h"
-#include "bubbleview.h"
+#include "bubblebutton.h"
 #include <QScreen>
 #include <QRect>
 #include <QGraphicsDropShadowEffect>
@@ -104,16 +104,16 @@ void InitialView::on_bubbleViewButton_clicked()
     this->ui->frame->setGeometry(windowX, windowY, windowWidth, windowHeight);
     this->ui->bubbleViewButton->hide();
     this->ui->fullScreenViewButton->hide();
-    BubbleView *bubbleView = BubbleView::getBubbleView((QWidget *)this->parent());
+    BubbleButton *bubbleButton = BubbleButton::get();
     QPropertyAnimation *animation = new QPropertyAnimation(this->ui->frame, "geometry", this);
     animation->setDuration(500);
     animation->setStartValue(this->ui->frame->geometry());
-    animation->setEndValue(bubbleView->geometry());
+    animation->setEndValue(bubbleButton->geometry());
     animation->start();
     QTimer::singleShot(500, this, [=](){
         delete animation;
         this->hide();
-        bubbleView->show();
+        bubbleButton->show();
         delete this;
     });
 }
