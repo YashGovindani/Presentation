@@ -12,6 +12,7 @@ private:
     QGraphicsDropShadowEffect *shadow_effect;
 public:
     static BubbleButton * get(QWidget *loadingView = nullptr);
+    ~BubbleButton();
 };
 
 #endif // BUBBLEBUTTON_H

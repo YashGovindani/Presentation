@@ -55,3 +55,8 @@ BubbleButton *BubbleButton::get(QWidget *loadingView)
     if(!bubbleButton) bubbleButton = new BubbleButton(loadingView);
     return bubbleButton;
 }
+
+BubbleButton::~BubbleButton()
+{
+    delete shadow_effect;
+}
