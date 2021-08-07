@@ -53,6 +53,13 @@ void BubbleButton::mousePressEvent(QMouseEvent *mouseEvent)
     buttonY = y();
 }
 
+void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
+{
+    buttonX += mouseEvent->x() - startX;
+    buttonY += mouseEvent->y() - startY;
+    move(buttonX, buttonY);
+}
+
 BubbleButton::~BubbleButton()
 {
 }
