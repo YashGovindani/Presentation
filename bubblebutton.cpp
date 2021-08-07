@@ -37,6 +37,7 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     this->setIconSize(QSize(30,30));
     this->setText(QString(""));
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Bubble view created"));
+    connect(this, &BubbleButton::clicked, this, &BubbleButton::onClick);
 }
 
 BubbleButton *BubbleButton::get(QWidget *loadingView)
@@ -51,6 +52,7 @@ void BubbleButton::mousePressEvent(QMouseEvent *mouseEvent)
     startY = mouseEvent->y();
     buttonX = x();
     buttonY = y();
+    moved = false;
 }
 
 void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
@@ -58,6 +60,17 @@ void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
     buttonX += mouseEvent->x() - startX;
     buttonY += mouseEvent->y() - startY;
     move(buttonX, buttonY);
+    moved = true;
+}
+
+void BubbleButton::mouseReleaseEvent(QMouseEvent *)
+{
+    if(!moved) clicked();
+}
+
+void BubbleButton::onClick()
+{
+    // ot do something
 }
 
 BubbleButton::~BubbleButton()

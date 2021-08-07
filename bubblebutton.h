@@ -15,10 +15,13 @@ private:
     int startY;
     int buttonX;
     int buttonY;
+    bool moved;
 public:
     static BubbleButton * get(QWidget *loadingView = nullptr);
     void mousePressEvent(QMouseEvent*);
     void mouseMoveEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *);
+    void onClick();
     ~BubbleButton();
 };
 
