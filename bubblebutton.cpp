@@ -5,3 +5,8 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
 {
 
 }
+
+BubbleButton *BubbleButton::get(QWidget *loadingView)
+{
+    return nullptr;
+}
