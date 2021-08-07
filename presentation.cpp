@@ -3,7 +3,6 @@
 
 #include "loadingview.h"
 #include "initialview.h"
-#include "bubbleview.h"
 
 Presentation::Presentation(QWidget *parent)
     : QMainWindow(parent)
