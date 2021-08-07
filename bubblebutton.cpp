@@ -1,6 +1,6 @@
 #include "bubblebutton.h"
 
-BubbleButton::BubbleButton()
+BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
 {
 
 }
