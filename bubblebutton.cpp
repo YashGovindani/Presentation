@@ -70,7 +70,7 @@ void BubbleButton::mouseReleaseEvent(QMouseEvent *)
 
 void BubbleButton::onClick()
 {
-    // ot do something
+    // to do something
 }
 
 BubbleButton::~BubbleButton()
