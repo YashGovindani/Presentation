@@ -28,11 +28,11 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     if(windowHeight % 2 != 0) windowHeight+=1;
     int windowWidth = windowHeight;
     int radius = windowHeight/2;
-    QString cornerRadius = QString::number(radius);
+    cornerRadius = QString::number(radius);
     this->setGeometry(desktopWidth - windowWidth -5, desktopHeight/2 - windowHeight/2, windowWidth, windowHeight);
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Adding shadow to view"));
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Setting buttons for bubble view"));
-    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}"));
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
     this->setIcon(QIcon(QPixmap(QString(":/bubble/images/p.png"))));
     this->setIconSize(QSize(30,30));
     this->setText(QString(""));
@@ -53,6 +53,7 @@ void BubbleButton::mousePressEvent(QMouseEvent *mouseEvent)
     buttonX = x();
     buttonY = y();
     moved = false;
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(23, 100, 189);}"));
 }
 
 void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
@@ -66,6 +67,7 @@ void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
 void BubbleButton::mouseReleaseEvent(QMouseEvent *)
 {
     if(!moved) clicked();
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
 }
 
 void BubbleButton::onClick()
