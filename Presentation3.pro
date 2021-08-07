@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bubblebutton.cpp \
-    bubbleview.cpp \
     initialview.cpp \
     loadingview.cpp \
     main.cpp \
@@ -25,13 +24,11 @@ SOURCES += \
 
 HEADERS += \
     bubblebutton.h \
-    bubbleview.h \
     initialview.h \
     loadingview.h \
     presentation.h
 
 FORMS += \
-    bubbleview.ui \
     initialview.ui \
     loadingview.ui \
     presentation.ui
