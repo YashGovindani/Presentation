@@ -5,7 +5,7 @@
 
 class BubbleButton:public QPushButton
 {
-public:
+private:
     BubbleButton(QWidget *loadingView = nullptr);
 };
 
