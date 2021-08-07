@@ -1,8 +1,9 @@
 #ifndef BUBBLEBUTTON_H
 #define BUBBLEBUTTON_H
 
+#include <QPushButton>
 
-class BubbleButton
+class BubbleButton:public QPushButton
 {
 public:
     BubbleButton();
