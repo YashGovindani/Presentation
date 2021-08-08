@@ -16,6 +16,7 @@ private:
     int buttonX;
     int buttonY;
     bool moved;
+    bool expanded;
     QString cornerRadius;
     QPushButton newBoardButton;
     QPushButton screenshotButton;
