@@ -20,12 +20,14 @@ SOURCES += \
     initialview.cpp \
     loadingview.cpp \
     main.cpp \
+    minibubblebutton.cpp \
     presentation.cpp
 
 HEADERS += \
     bubblebutton.h \
     initialview.h \
     loadingview.h \
+    minibubblebutton.h \
     presentation.h
 
 FORMS += \

@@ -137,7 +137,6 @@ void BubbleButton::onClick()
     {
         int endX = startX + invert*((int)(((double)expandedRadius)*cos(((double)(2*22))/(double)(3*7))));
         int endY = startY - (int)(((double)expandedRadius)*sin(((double)(2*22))/(double)(3*7)));
-
         QRect startRect(startX, startY, smallButtonWidth, smallButtonHeight);
         QPropertyAnimation *animation = new QPropertyAnimation(&backToApplicationButton, "geometry", this);
         animation->setDuration(100);
