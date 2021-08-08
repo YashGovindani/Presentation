@@ -12,6 +12,18 @@
 #include <math.h>
 #include <QDebug>
 
+void onBackToApplicationButtonClicked()
+{}
+
+void onScreenshotButtonClicked()
+{}
+
+void onNewBoardButtonClicked()
+{}
+
+void onQuitButtonClicked()
+{}
+
 BubbleButton * BubbleButton::bubbleButton;
 
 BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
@@ -54,21 +66,25 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     newBoardButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     newBoardButton.setAttribute(Qt::WA_TranslucentBackground);
     newBoardButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
+    newBoardButton.setClickEvent(onNewBoardButtonClicked);
     screenshotButton.setStyleSheet(smallButtonStyleSheet);
     screenshotButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/screenshot.png"))));
     screenshotButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     screenshotButton.setAttribute(Qt::WA_TranslucentBackground);
     screenshotButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
+    screenshotButton.setClickEvent(onScreenshotButtonClicked);
     backToApplicationButton.setStyleSheet(smallButtonStyleSheet);
     backToApplicationButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/backToApplication.png"))));
     backToApplicationButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     backToApplicationButton.setAttribute(Qt::WA_TranslucentBackground);
     backToApplicationButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
+    backToApplicationButton.setClickEvent(onBackToApplicationButtonClicked);
     quitButton.setStyleSheet(smallButtonStyleSheet);
     quitButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/quit.png"))));
     quitButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     quitButton.setAttribute(Qt::WA_TranslucentBackground);
     quitButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
+    quitButton.setClickEvent(onQuitButtonClicked);
     expanded = false;
 }
 
