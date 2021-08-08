@@ -17,6 +17,10 @@ private:
     int buttonY;
     bool moved;
     QString cornerRadius;
+    QPushButton newBoardButton;
+    QPushButton screenshotButton;
+    QPushButton backToApplicationButton;
+    QPushButton quitButton;
 public:
     static BubbleButton * get(QWidget *loadingView = nullptr);
     void mousePressEvent(QMouseEvent*);

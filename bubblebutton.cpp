@@ -40,6 +40,13 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     this->setText(QString(""));
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Bubble view created"));
     connect(this, &BubbleButton::clicked, this, &BubbleButton::onClick);
+    int smallButtonRadius = (radius*2)/3;
+    QString smallButtonCornerRadius = QString::number(smallButtonRadius);
+    QString smallButtonStyleSheet = QString("QPushButton{border-top-left-radius : ") + smallButtonCornerRadius + QString("; border-top-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-left-radius : ") + smallButtonCornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}");
+    newBoardButton.setStyleSheet(smallButtonStyleSheet);
+    screenshotButton.setStyleSheet(smallButtonStyleSheet);
+    backToApplicationButton.setStyleSheet(smallButtonStyleSheet);
+    quitButton.setStyleSheet(smallButtonStyleSheet);
 }
 
 BubbleButton *BubbleButton::get(QWidget *loadingView)
@@ -80,8 +87,8 @@ void BubbleButton::mouseReleaseEvent(QMouseEvent *)
     animation->start();
     QTimer::singleShot(500, this, [=](){
         delete animation;
-        this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
     });
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
 }
 
 void BubbleButton::onClick()
