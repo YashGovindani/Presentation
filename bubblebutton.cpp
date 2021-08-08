@@ -7,6 +7,8 @@
 #include <QSize>
 #include <QGuiApplication>
 #include <QPainter>
+#include <QPropertyAnimation>
+#include <QTimer>
 
 BubbleButton * BubbleButton::bubbleButton;
 
@@ -67,7 +69,19 @@ void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
 void BubbleButton::mouseReleaseEvent(QMouseEvent *)
 {
     if(!moved) clicked();
-    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = screen->geometry();
+    int desktopWidth = screenGeometry.width();
+    int newX = (this->x()>=desktopWidth/2)?desktopWidth - width() - 5: 5;
+    QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry", this);
+    animation->setDuration(500);
+    animation->setStartValue(this->geometry());
+    animation->setEndValue(QRect(newX, y(), width(), height()));
+    animation->start();
+    QTimer::singleShot(500, this, [=](){
+        delete animation;
+        this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
+    });
 }
 
 void BubbleButton::onClick()
