@@ -41,12 +41,32 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Bubble view created"));
     connect(this, &BubbleButton::clicked, this, &BubbleButton::onClick);
     int smallButtonRadius = (radius*2)/3;
+    int smallButtonWidth = smallButtonRadius*2;
+    int smallButtonHeight = smallButtonWidth;
+    int smallButtonX = x() + radius - smallButtonRadius;
+    int smallButtonY = y() + radius -smallButtonRadius;
     QString smallButtonCornerRadius = QString::number(smallButtonRadius);
     QString smallButtonStyleSheet = QString("QPushButton{border-top-left-radius : ") + smallButtonCornerRadius + QString("; border-top-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-left-radius : ") + smallButtonCornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}");
     newBoardButton.setStyleSheet(smallButtonStyleSheet);
+    newBoardButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/board.png"))));
+    newBoardButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    newBoardButton.setAttribute(Qt::WA_TranslucentBackground);
+    newBoardButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
     screenshotButton.setStyleSheet(smallButtonStyleSheet);
+    screenshotButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/screenshot.png"))));
+    screenshotButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    screenshotButton.setAttribute(Qt::WA_TranslucentBackground);
+    screenshotButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
     backToApplicationButton.setStyleSheet(smallButtonStyleSheet);
+    backToApplicationButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/backToApplication.png"))));
+    backToApplicationButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    backToApplicationButton.setAttribute(Qt::WA_TranslucentBackground);
+    backToApplicationButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
     quitButton.setStyleSheet(smallButtonStyleSheet);
+    quitButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/quit.png"))));
+    quitButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    quitButton.setAttribute(Qt::WA_TranslucentBackground);
+    quitButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
 }
 
 BubbleButton *BubbleButton::get(QWidget *loadingView)
@@ -75,7 +95,12 @@ void BubbleButton::mouseMoveEvent(QMouseEvent *mouseEvent)
 
 void BubbleButton::mouseReleaseEvent(QMouseEvent *)
 {
-    if(!moved) clicked();
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
+    if(!moved)
+    {
+        clicked();
+        return;
+    }
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect screenGeometry = screen->geometry();
     int desktopWidth = screenGeometry.width();
@@ -88,7 +113,6 @@ void BubbleButton::mouseReleaseEvent(QMouseEvent *)
     QTimer::singleShot(500, this, [=](){
         delete animation;
     });
-    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
 }
 
 void BubbleButton::onClick()

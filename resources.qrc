@@ -6,5 +6,9 @@
     </qresource>
     <qresource prefix="/bubble/images">
         <file>p.png</file>
+        <file>backToApplication.png</file>
+        <file>board.png</file>
+        <file>quit.png</file>
+        <file>screenshot.png</file>
     </qresource>
 </RCC>
