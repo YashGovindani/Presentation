@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     loadingView->show();
     loadingView->setInfo(QString("Initiating"));
     InitialView *initialView = new InitialView(nullptr, loadingView);
-    BubbleButton::get(loadingView);
+    BubbleButton::get(loadingView)->setA(&a);
     // After initiation
     loadingView->setInfo(QString("Ready to go !!!!"));
     loadingView->setCompleted(initialView);

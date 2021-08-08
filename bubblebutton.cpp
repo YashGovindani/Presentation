@@ -22,7 +22,9 @@ void onNewBoardButtonClicked()
 {}
 
 void onQuitButtonClicked()
-{}
+{
+    BubbleButton::get()->getA()->quit();
+}
 
 BubbleButton * BubbleButton::bubbleButton;
 
@@ -86,6 +88,16 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     quitButton.setGeometry(smallButtonX, smallButtonY, smallButtonWidth, smallButtonHeight);
     quitButton.setClickEvent(onQuitButtonClicked);
     expanded = false;
+}
+
+QApplication *BubbleButton::getA() const
+{
+    return a;
+}
+
+void BubbleButton::setA(QApplication *value)
+{
+    a = value;
 }
 
 BubbleButton *BubbleButton::get(QWidget *loadingView)

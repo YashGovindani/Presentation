@@ -6,6 +6,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QPaintEvent>
 #include <QMouseEvent>
+#include <QApplication>
 
 class BubbleButton:public QPushButton
 {
@@ -23,6 +24,7 @@ private:
     MiniBubbleButton screenshotButton;
     MiniBubbleButton backToApplicationButton;
     MiniBubbleButton quitButton;
+    QApplication *a;
 public:
     static BubbleButton * get(QWidget *loadingView = nullptr);
     void mousePressEvent(QMouseEvent*);
@@ -30,6 +32,8 @@ public:
     void mouseReleaseEvent(QMouseEvent *);
     void onClick();
     ~BubbleButton();
+    QApplication *getA() const;
+    void setA(QApplication *value);
 };
 
 #endif // BUBBLEBUTTON_H

@@ -1,4 +1,6 @@
 #include "minibubblebutton.h"
+#include "bubblebutton.h"
+#include <QApplication>
 
 MiniBubbleButton::MiniBubbleButton():QPushButton()
 {
