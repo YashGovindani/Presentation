@@ -50,7 +50,7 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     this->setGeometry(desktopWidth - windowWidth -5, desktopHeight/2 - windowHeight/2, windowWidth, windowHeight);
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Adding shadow to view"));
     if(loadingViewPointer) loadingViewPointer->setInfo(QString("Setting buttons for bubble view"));
-    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}"));
+    this->setStyleSheet(QString("QPushButton{border-top-left-radius : ") + cornerRadius + QString("; border-top-right-radius : ") + cornerRadius + QString("; border-bottom-right-radius : ") + cornerRadius + QString("; border-bottom-left-radius : ") + cornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255, 255, 255)}"));
     this->setIcon(QIcon(QPixmap(QString(":/bubble/images/p.png"))));
     this->setIconSize(QSize(30,30));
     this->setText(QString(""));
@@ -62,7 +62,7 @@ BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
     int smallButtonX = x() + radius - smallButtonRadius;
     int smallButtonY = y() + radius -smallButtonRadius;
     QString smallButtonCornerRadius = QString::number(smallButtonRadius);
-    QString smallButtonStyleSheet = QString("QPushButton{border-top-left-radius : ") + smallButtonCornerRadius + QString("; border-top-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-left-radius : ") + smallButtonCornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255,255, 255)}");
+    QString smallButtonStyleSheet = QString("QPushButton{border-top-left-radius : ") + smallButtonCornerRadius + QString("; border-top-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-right-radius : ") + smallButtonCornerRadius + QString("; border-bottom-left-radius : ") + smallButtonCornerRadius + QString("; background-color : rgb(32, 33, 36);} QPushButton:hover{background-color : rgb(255, 255, 255)} QPushButton:pressed{background-color : rgb(23, 100, 189)}");
     newBoardButton.setStyleSheet(smallButtonStyleSheet);
     newBoardButton.setIcon(QIcon(QPixmap(QString(":/bubble/images/board.png"))));
     newBoardButton.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
