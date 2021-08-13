@@ -17,7 +17,7 @@ public:
 
 private:
     Ui::Presentation *ui;
-    //static Presentation *presentation;
+    static Presentation *presentation;
     Presentation(QWidget *loadingView = nullptr,QWidget *parent = nullptr);
     //void setToolFramePosition(QWidget *bubbleButton);
     //void setToolFrame(QWidget *bubbleButton);

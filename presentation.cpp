@@ -4,6 +4,8 @@
 #include "loadingview.h"
 #include "initialview.h"
 
+Presentation *Presentation::presentation = nullptr;
+
 Presentation::Presentation(QWidget *loadingView, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Presentation)
