@@ -20,7 +20,7 @@ void Presentation::setToolFramePosition(QWidget *bubbleButton)
 
 }
 
-void Presentation::modifyToolFrame(QWidget *bubbleButton)
+void Presentation::initiateToolFrame(QWidget *bubbleButton)
 {
 
 }
