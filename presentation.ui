@@ -27,6 +27,22 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QFrame" name="toolFrame">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
