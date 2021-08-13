@@ -5,6 +5,7 @@
 #include "initialview.h"
 
 Presentation *Presentation::presentation = nullptr;
+bool Presentation::toolFrameInitiated = false;
 
 Presentation::Presentation(QWidget *loadingView, QWidget *parent)
     : QMainWindow(parent)
