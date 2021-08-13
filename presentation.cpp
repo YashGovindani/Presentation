@@ -15,6 +15,11 @@ Presentation::Presentation(QWidget *loadingView, QWidget *parent)
     this->setAttribute(Qt::WA_TranslucentBackground);
 }
 
+void Presentation::setToolFramePosition(QWidget *bubbleButton)
+{
+
+}
+
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
 {
 
