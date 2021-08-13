@@ -26,7 +26,7 @@ void onQuitButtonClicked()
     BubbleButton::get()->getA()->quit();
 }
 
-BubbleButton * BubbleButton::bubbleButton;
+BubbleButton * BubbleButton::bubbleButton = nullptr;
 
 BubbleButton::BubbleButton(QWidget *loadingView):QPushButton()
 {
