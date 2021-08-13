@@ -20,6 +20,11 @@ void Presentation::setToolFramePosition(QWidget *bubbleButton)
 
 }
 
+void Presentation::modifyToolFrame(QWidget *bubbleButton)
+{
+
+}
+
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
 {
 
