@@ -14,7 +14,7 @@
    <string>Presentation</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="mainViewlabel">
+   <widget class="QLabel" name="mainViewLabel">
     <property name="geometry">
      <rect>
       <x>30</x>
