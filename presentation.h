@@ -12,7 +12,7 @@ class Presentation : public QMainWindow
     Q_OBJECT
 
 public:
-    //static Presentation * get(QWidget *bubbleButton, QWidget *loadingView = nullptr);
+    static Presentation * get(QWidget *bubbleButton, QWidget *loadingView = nullptr);
     ~Presentation();
 
 private:
