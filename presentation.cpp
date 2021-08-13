@@ -33,18 +33,18 @@ Presentation::Presentation(QWidget *loadingView, QWidget *parent)
 
 void Presentation::setToolFramePosition(QWidget *bubbleButton)
 {
-
+    this->ui->toolFrame->setGeometry(bubbleButton->geometry());
 }
 
 void Presentation::initiateToolFrame(QWidget *bubbleButton)
 {
-
+    toolFrameInitiated = true;
 }
 
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
 {
     if(!presentation) presentation = new Presentation(loadingView);
-    presentation->initiateToolFrame(bubbleButton);
+    if(!toolFrameInitiated) presentation->initiateToolFrame(bubbleButton);
     presentation->setToolFramePosition(bubbleButton);
     return presentation;
 }
