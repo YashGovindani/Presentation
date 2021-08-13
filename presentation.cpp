@@ -43,7 +43,10 @@ void Presentation::initiateToolFrame(QWidget *bubbleButton)
 
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
 {
-
+    if(!presentation) presentation = new Presentation(loadingView);
+    presentation->initiateToolFrame(bubbleButton);
+    presentation->setToolFramePosition(bubbleButton);
+    return presentation;
 }
 
 Presentation::~Presentation()
