@@ -14,7 +14,14 @@
 #include "presentation.h"
 
 void onBackToApplicationButtonClicked()
-{}
+{
+    BubbleButton *bubble = BubbleButton::get();
+    bubble->compressAction();
+    QTimer::singleShot(400, bubble, [=](){
+        bubble->close();
+        Presentation::get(bubble)->showFullScreenView();
+    });
+}
 
 void onScreenshotButtonClicked()
 {}
