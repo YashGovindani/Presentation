@@ -17,18 +17,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bubblebutton.cpp \
+    drawablecomponent.cpp \
     initialview.cpp \
     loadingview.cpp \
     main.cpp \
     minibubblebutton.cpp \
-    presentation.cpp
+    presentation.cpp \
+    roll.cpp \
+    slide.cpp
 
 HEADERS += \
     bubblebutton.h \
+    drawablecomponent.h \
     initialview.h \
     loadingview.h \
     minibubblebutton.h \
-    presentation.h
+    presentation.h \
+    roll.h \
+    slide.h
 
 FORMS += \
     initialview.ui \
