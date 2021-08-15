@@ -13,6 +13,7 @@ class Presentation : public QMainWindow
 
 public:
     static Presentation * get(QWidget *bubbleButton, QWidget *loadingView = nullptr);
+    void enlargeToolFrame();
     ~Presentation();
 
 private:
@@ -22,5 +23,6 @@ private:
     Presentation(QWidget *loadingView = nullptr,QWidget *parent = nullptr);
     void setToolFramePosition(QWidget *bubbleButton);
     void initiateToolFrame(QWidget *bubbleButton);
+    int toolFrameHeight;
 };
 #endif // PRESENTATION_H

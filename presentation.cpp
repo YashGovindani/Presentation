@@ -8,6 +8,7 @@
 #include <QGuiApplication>
 #include <QRect>
 #include <QFont>
+#include <QPropertyAnimation>
 
 Presentation *Presentation::presentation = nullptr;
 bool Presentation::toolFrameInitiated = false;
@@ -39,14 +40,38 @@ void Presentation::setToolFramePosition(QWidget *bubbleButton)
 void Presentation::initiateToolFrame(QWidget *bubbleButton)
 {
     toolFrameInitiated = true;
+    this->ui->toolFrame->setStyleSheet(bubbleButton->styleSheet());
 }
 
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
 {
     if(!presentation) presentation = new Presentation(loadingView);
-    if(!toolFrameInitiated) presentation->initiateToolFrame(bubbleButton);
     presentation->setToolFramePosition(bubbleButton);
+    if(!toolFrameInitiated) presentation->initiateToolFrame(bubbleButton);
     return presentation;
+}
+
+void Presentation::enlargeToolFrame()
+{
+    int checkY = this->height()/2 - this->ui->toolFrame->height()/2;
+    int startY = this->height()/2 - this->toolFrameHeight/2, endY = startY +this->toolFrameHeight;
+    if(this->ui->toolFrame->y() < checkY)
+    {
+        startY -= checkY - this->ui->toolFrame->y();
+        if(startY < 0) startY = 0;
+        endY = startY + this->toolFrameHeight;
+    }
+    else
+    {
+        endY += this->ui->toolFrame->y() - checkY;
+        if(endY > this->height()) endY = this->height();
+        startY = endY - this->toolFrameHeight;
+    }
+    QPropertyAnimation *animation = new QPropertyAnimation(this->ui->toolFrame, "geometry", this);
+    animation->setDuration(100);
+    animation->setStartValue(this->ui->toolFrame->geometry());
+    animation->setEndValue(QRect(this->ui->toolFrame->x(), startY, this->ui->toolFrame->width(), this->toolFrameHeight));
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 Presentation::~Presentation()
