@@ -41,8 +41,10 @@ void Presentation::initiateToolFrame(QWidget *bubbleButton)
 {
     toolFrameInitiated = true;
     this->ui->toolFrame->setStyleSheet(bubbleButton->styleSheet());
-    int buttonCount = 4;
     int buttonRadius = this->ui->toolFrame->width()/2;
+    QString radiusString = QString::number(buttonRadius);
+    this->ui->toolFrame->setStyleSheet(QString("background-color : rgba(255, 255, 255, 150); border-top-left-radius : ") + radiusString + QString("; border-top-right-radius : ") + radiusString + QString("; border-bottom-right-radius : ") + radiusString + QString("; border-bottom-left-radius : ") + radiusString + QString(";"));
+    int buttonCount = 4;
     this->toolFrameHeight = buttonCount*buttonRadius*2;
 }
 
@@ -71,7 +73,7 @@ void Presentation::enlargeToolFrame()
         startY = endY - this->toolFrameHeight;
     }
     QPropertyAnimation *animation = new QPropertyAnimation(this->ui->toolFrame, "geometry", this);
-    animation->setDuration(100);
+    animation->setDuration(800);
     animation->setStartValue(this->ui->toolFrame->geometry());
     animation->setEndValue(QRect(this->ui->toolFrame->x(), startY, this->ui->toolFrame->width(), this->toolFrameHeight));
     animation->start(QPropertyAnimation::DeleteWhenStopped);
