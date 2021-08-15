@@ -81,11 +81,10 @@ void InitialView::on_fullScreenViewButton_clicked()
     animation->setDuration(500);
     animation->setStartValue(this->ui->frame->geometry());
     animation->setEndValue(screenGeometry);
-    animation->start();
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
     QTimer::singleShot(500, this, [=](){
-        delete animation;
-        // code to make full screen view visible
         this->hide();
+        Presentation::get(BubbleButton::get())->showFullScreenView();
         delete this;
     });
 }
@@ -109,9 +108,8 @@ void InitialView::on_bubbleViewButton_clicked()
     animation->setDuration(500);
     animation->setStartValue(this->ui->frame->geometry());
     animation->setEndValue(bubbleButton->geometry());
-    animation->start();
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
     QTimer::singleShot(500, this, [=](){
-        delete animation;
         this->hide();
         bubbleButton->show();
         delete this;
