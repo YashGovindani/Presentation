@@ -30,6 +30,11 @@ Presentation::Presentation(QWidget *loadingView, QWidget *parent)
     this->ui->mainViewLabel->setAlignment(Qt::AlignCenter);
     this->ui->mainViewLabel->setStyleSheet(QString("color : rgba(1,1,1,25); background-color : rgba(0,0,0,0)"));
     this->ui->toolFrame->setStyleSheet(QString("background-color : rgba(255, 255, 255, 25); border : 1px solid white;"));
+    toolFrameShadow = new QGraphicsDropShadowEffect(this);
+    toolFrameShadow->setOffset(0, 0);
+    toolFrameShadow->setColor(QColor(0, 0, 0, 255));
+    toolFrameShadow->setBlurRadius(30);
+    this->ui->toolFrame->setGraphicsEffect(toolFrameShadow);
 }
 
 void Presentation::setToolFramePosition(QWidget *bubbleButton)
@@ -43,7 +48,7 @@ void Presentation::initiateToolFrame(QWidget *bubbleButton)
     this->ui->toolFrame->setStyleSheet(bubbleButton->styleSheet());
     int buttonRadius = this->ui->toolFrame->width()/2;
     QString radiusString = QString::number(buttonRadius);
-    this->ui->toolFrame->setStyleSheet(QString("background-color : rgba(255, 255, 255, 150); border-top-left-radius : ") + radiusString + QString("; border-top-right-radius : ") + radiusString + QString("; border-bottom-right-radius : ") + radiusString + QString("; border-bottom-left-radius : ") + radiusString + QString(";"));
+    this->ui->toolFrame->setStyleSheet(QString("background-color : rgb(32, 33, 36); border-top-left-radius : ") + radiusString + QString("; border-top-right-radius : ") + radiusString + QString("; border-bottom-right-radius : ") + radiusString + QString("; border-bottom-left-radius : ") + radiusString + QString(";"));
     int buttonCount = 4;
     this->toolFrameHeight = buttonCount*buttonRadius*2;
 }
@@ -87,6 +92,7 @@ void Presentation::showFullScreenView()
 
 Presentation::~Presentation()
 {
+    delete toolFrameShadow;
     delete ui;
 }
 

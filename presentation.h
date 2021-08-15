@@ -2,6 +2,7 @@
 #define PRESENTATION_H
 
 #include <QMainWindow>
+#include <QGraphicsDropShadowEffect>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Presentation; }
@@ -24,5 +25,6 @@ private:
     void setToolFramePosition(QWidget *bubbleButton);
     void initiateToolFrame(QWidget *bubbleButton);
     int toolFrameHeight;
+    QGraphicsDropShadowEffect *toolFrameShadow;
 };
 #endif // PRESENTATION_H
