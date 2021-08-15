@@ -41,6 +41,9 @@ void Presentation::initiateToolFrame(QWidget *bubbleButton)
 {
     toolFrameInitiated = true;
     this->ui->toolFrame->setStyleSheet(bubbleButton->styleSheet());
+    int buttonCount = 4;
+    int buttonRadius = this->ui->toolFrame->width()/2;
+    this->toolFrameHeight = buttonCount*buttonRadius*2;
 }
 
 Presentation *Presentation::get(QWidget *bubbleButton, QWidget *loadingView)
