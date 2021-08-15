@@ -25,6 +25,7 @@ private:
     MiniBubbleButton backToApplicationButton;
     MiniBubbleButton quitButton;
     QApplication *a;
+    void compressAction();
 public:
     static BubbleButton * get(QWidget *loadingView = nullptr);
     void mousePressEvent(QMouseEvent*);
