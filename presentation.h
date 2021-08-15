@@ -14,8 +14,8 @@ class Presentation : public QMainWindow
 public:
     static Presentation * get(QWidget *bubbleButton, QWidget *loadingView = nullptr);
     void enlargeToolFrame();
+    void showFullScreenView();
     ~Presentation();
-
 private:
     Ui::Presentation *ui;
     static Presentation *presentation;

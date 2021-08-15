@@ -77,6 +77,12 @@ void Presentation::enlargeToolFrame()
     animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
+void Presentation::showFullScreenView()
+{
+    this->showFullScreen();
+    this->enlargeToolFrame();
+}
+
 Presentation::~Presentation()
 {
     delete ui;
